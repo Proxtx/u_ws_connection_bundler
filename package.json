@@ -1,0 +1,23 @@
+{
+  "name": "u_ws_connection_bundler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Proxtx/u_ws_connection_bundler.git"
+  },
+  "author": "Proxtx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Proxtx/u_ws_connection_bundler/issues"
+  },
+  "homepage": "https://github.com/Proxtx/u_ws_connection_bundler#readme",
+  "dependencies": {
+    "ws": "^8.8.1"
+  }
+}
