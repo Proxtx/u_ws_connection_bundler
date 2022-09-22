@@ -1,3 +1,4 @@
 {
-  "test"
+  "apiPort": 5000,
+  "wsPort": 8080
 }
