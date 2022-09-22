@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/Proxtx/u_ws_connection_bundler#readme",
   "dependencies": {
+    "@proxtx/combine": "^3.1.4",
+    "@proxtx/combine-rest": "^1.0.4",
+    "@proxtx/config": "^1.0.2",
+    "express": "^4.18.1",
     "ws": "^8.8.1"
   }
 }
