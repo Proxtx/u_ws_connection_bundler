@@ -5,3 +5,7 @@ export const request = async (id, request) => {
     return { success: true, result: await clients.sendRequest(request) };
   else return { success: false, error: 1 };
 };
+
+export const listClients = () => {
+  return { success: true, clients: Object.keys(clients) };
+};

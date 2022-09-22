@@ -20,6 +20,7 @@ wss.on("connection", async (ws) => {
 
   ws.on("close", () => {
     delete clients[id];
+    console.log("A client disconnected:", id);
   });
 
   ws.send(
