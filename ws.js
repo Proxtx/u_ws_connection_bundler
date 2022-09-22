@@ -39,9 +39,10 @@ wss.on("connection", async (ws) => {
     await new Promise((r) => (newMessage = r));
   }
 
-  clients[latestData.id] = new Client(ws, latestData.result);
-  newMessage = clients[latestData.id].message;
-  id = latestData.id;
+  id = latestData.result;
+  let client = new Client(ws, id);
+  clients[id] = client;
+  newMessage = (msg) => client.message(msg);
 });
 
 class Client {
