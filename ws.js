@@ -8,6 +8,7 @@ const wss = new WebSocketServer({ port: config.wsPort });
 wss.on("connection", async (ws) => {
   let newMessage;
   let latestData;
+  let id;
 
   ws.on("message", (data) => {
     try {
@@ -15,6 +16,10 @@ wss.on("connection", async (ws) => {
     } catch {}
     newMessage(data);
     latestData = data;
+  });
+
+  ws.on("close", () => {
+    delete clients[id];
   });
 
   ws.send(
@@ -35,6 +40,7 @@ wss.on("connection", async (ws) => {
 
   clients[latestData.id] = new Client(ws, latestData.result);
   newMessage = clients[latestData.id].message;
+  id = latestData.id;
 });
 
 class Client {
