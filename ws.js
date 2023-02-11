@@ -64,9 +64,10 @@ class Client {
         if (!resolved) {
           delete clients[this.id];
           this.latestMessage = false;
+          console.log("A client disconnected due to a timeout:", this.id);
           r();
         }
-      }, 5000);
+      }, 10000);
     });
     resolved = true;
     delete this.messageAwaiters[request.id];
