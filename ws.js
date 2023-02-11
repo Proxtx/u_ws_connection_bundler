@@ -57,7 +57,18 @@ class Client {
 
   async sendRequest(request) {
     this.socket.send(JSON.stringify(request));
-    await new Promise((r) => (this.messageAwaiters[request.id] = r));
+    let resolved = false;
+    await new Promise((r) => {
+      this.messageAwaiters[request.id] = r;
+      setTimeout(() => {
+        if (!resolved) {
+          delete clients[this.id];
+          this.latestMessage = false;
+          r();
+        }
+      }, 5000);
+    });
+    resolved = true;
     delete this.messageAwaiters[request.id];
     return this.latestMessage;
   }
