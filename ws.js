@@ -61,7 +61,7 @@ class Client {
     await new Promise((r) => {
       this.messageAwaiters[request.id] = r;
       setTimeout(() => {
-        if (!resolved) {
+        if (!resolved && request.service == "core") {
           delete clients[this.id];
           this.latestMessage = false;
           r();
