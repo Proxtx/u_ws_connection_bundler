@@ -76,7 +76,7 @@ class Client {
           console.log("A client disconnected due to a timeout:", this.id);
           r();
         }
-      }, 10000);
+      }, 20000);
     });
     resolved = true;
     delete this.messageAwaiters[request.id];
