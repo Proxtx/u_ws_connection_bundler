@@ -39,6 +39,15 @@ wss.on("connection", async (ws) => {
     await new Promise((r) => (newMessage = r));
   }
 
+  const alive = () => {
+    ws.send("alive");
+    setTimeout(() => {
+      alive();
+    }, 5000);
+  };
+
+  alive();
+
   id = latestData.result;
   let client = new Client(ws, id);
   clients[id] = client;
