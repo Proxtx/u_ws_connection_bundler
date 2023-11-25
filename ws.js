@@ -40,7 +40,7 @@ wss.on("connection", async (ws) => {
   }
 
   const alive = () => {
-    if (clients[id]) clients[id].send("alive");
+    if (clients[id]) clients[id].socket.send("alive");
     setTimeout(() => {
       alive();
     }, 5000);
